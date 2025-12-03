@@ -12,45 +12,39 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
-        <os.detected.classifier>win</os.detected.classifier>
 
-        <!-- Use a JavaFX version that matches what you downloaded (change if needed) -->
+        <!-- compile for JDK 23 -->
+        <maven.compiler.source>23</maven.compiler.source>
+        <maven.compiler.target>23</maven.compiler.target>
+        <maven.compiler.release>23</maven.compiler.release>
+
+        <!-- JavaFX version -->
         <javafx.version>25.0.1</javafx.version>
 
-        <!-- will be set by os-maven-plugin at build time (e.g. "win64" or "linux-x86_64") -->
-        <javafx.platform>${os.detected.classifier}</javafx.platform>
+        <!-- default classifier (will be overridden by os-maven-plugin at build time) -->
+        <os.detected.classifier>win</os.detected.classifier>
     </properties>
 
     <dependencies>
-        <!-- JavaFX dependencies with automatic classifier injection -->
+        <!-- JavaFX modules (classifier injected) -->
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>
             <version>${javafx.version}</version>
-            <classifier>${javafx.platform}</classifier>
+            <classifier>${os.detected.classifier}</classifier>
         </dependency>
 
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-fxml</artifactId>
             <version>${javafx.version}</version>
-            <classifier>${javafx.platform}</classifier>
+            <classifier>${os.detected.classifier}</classifier>
         </dependency>
-
-        <!-- (Optional) JUnit for tests if you need it -->
-        <!--<dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.13.2</version>
-            <scope>test</scope>
-        </dependency>-->
     </dependencies>
 
     <build>
         <plugins>
-            <!-- os-maven-plugin detects the platform for classifier (win, linux, mac) -->
+            <!-- detect OS classifier (win/linux/mac) -->
             <plugin>
                 <groupId>kr.motd.maven</groupId>
                 <artifactId>os-maven-plugin</artifactId>
@@ -64,7 +58,16 @@
                 </executions>
             </plugin>
 
-            <!-- javafx-maven-plugin to run the app with mvn javafx:run -->
+            <!-- ensure compiler uses release 23 -->
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.11.0</version>
+                <configuration>
+                    <release>${maven.compiler.release}</release>
+                </configuration>
+            </plugin>
+
+            <!-- plugin to run JavaFX with mvn javafx:run -->
             <plugin>
                 <groupId>org.openjfx</groupId>
                 <artifactId>javafx-maven-plugin</artifactId>
@@ -75,4 +78,5 @@
             </plugin>
         </plugins>
     </build>
+
 </project>

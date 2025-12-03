@@ -1,108 +1,114 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<BorderPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="">
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
 
-    <!-- Main background container -->
+<BorderPane xmlns="http://javafx.com/javafx/25"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.myapp.controller.MainController">
+
     <center>
-        <StackPane styleClass="root-bg">
+        <StackPane fx:id="rootStack" prefHeight="600">
 
-            <!-- Main blue card container -->
-            <BorderPane maxWidth="1000"
-                        maxHeight="550"
-                        prefWidth="950"
-                        prefHeight="520"
-                        styleClass="hero-card">
+            <!-- CONTENT OVER BACKGROUND -->
+            <VBox alignment="TOP_LEFT" spacing="40">
+                <padding>
+                    <!-- margin from window borders -->
+                    <Insets top="40" right="60" bottom="40" left="60"/>
+                </padding>
 
-                <!-- NAVIGATION BAR -->
-                <top>
-                    <HBox spacing="40"
-                          alignment="CENTER_LEFT"
-                          styleClass="navbar">
+                <!-- NAVBAR -->
+                <HBox spacing="30">
+                    <Label text="Home"        styleClass="menu-item"/>
+                    <Label text="À propos"    styleClass="menu-item"/>
+                    <Label text="Contact"     styleClass="menu-item"/>
 
-                        <!-- Left menu items -->
-                        <Label text="Home" styleClass="nav-item"/>
-                        <Label text="À propos" styleClass="nav-item"/>
-                        <Label text="Contact" styleClass="nav-item"/>
+                    <Pane HBox.hgrow="ALWAYS"/>
+                    <Label text="Login / Register" styleClass="menu-item"/>
+                </HBox>
 
-                        <!-- Spacer to push Login/Register to the right -->
-                        <Pane HBox.hgrow="ALWAYS"/>
+                <!-- TITLES + BUTTON -->
+                <VBox spacing="15">
+                    <Label text="Bâtissez en confiance,"
+                           styleClass="title"/>
+                    <Label text="avec l’expertise TERRACIM"
+                           styleClass="title"/>
 
-                        <!-- Right menu item -->
-                        <Label text="Login / Register"
-                               styleClass="nav-item"/>
-                    </HBox>
-                </top>
+                    <Button text="Commencer avec nous"
+                            styleClass="cta"
+                            onAction="#showForm"/>
+                </VBox>
 
-                <!-- MAIN CONTENT AREA -->
-                <center>
-                    <HBox spacing="40" styleClass="hero-content">
+                <!-- CARDS -->
+                <HBox spacing="20">
 
-                        <!-- LEFT SECTION : text and features -->
-                        <VBox spacing="25" prefWidth="520">
+                    <!-- Card 1 -->
+                    <VBox spacing="12" styleClass="card" alignment="TOP_LEFT">
 
-                            <!-- Main title -->
-                            <Label text="Bâtissez en confiance,\navec l’expertise TERRACIM"
-                                   wrapText="true"
-                                   styleClass="hero-title"/>
+                        <ImageView fitWidth="45" fitHeight="45" preserveRatio="true">
+                            <image>
+                                <Image url="@images/crane.png"/>
+                            </image>
+                        </ImageView>
 
-                            <!-- Primary call-to-action button -->
-                            <Button text="Commencer avec nous"
-                                    styleClass="primary-btn"/>
-
-                            <!-- FEATURE CARDS SECTION -->
-                            <HBox spacing="20">
-
-                                <!-- Feature Card 1 -->
-                                <VBox spacing="10" styleClass="feature-card">
-                                    <Label text="🚜" styleClass="feature-icon"/>
-                                    <Label text="Expertise locale"
-                                           styleClass="feature-title"/>
-                                    <Label text="Savoir-faire marocain authentique."
-                                           wrapText="true"
-                                           styleClass="feature-text"/>
-                                </VBox>
-
-                                <!-- Feature Card 2 -->
-                                <VBox spacing="10" styleClass="feature-card">
-                                    <Label text="💡" styleClass="feature-icon"/>
-                                    <Label text="Innovation continue"
-                                           styleClass="feature-title"/>
-                                    <Label text="Technologies modernes et durables."
-                                           wrapText="true"
-                                           styleClass="feature-text"/>
-                                </VBox>
-
-                                <!-- Feature Card 3 -->
-                                <VBox spacing="10" styleClass="feature-card">
-                                    <Label text="🤝" styleClass="feature-icon"/>
-                                    <Label text="Confiance et transparence"
-                                           styleClass="feature-title"/>
-                                    <Label text="Engagement clair et honnête."
-                                           wrapText="true"
-                                           styleClass="feature-text"/>
-                                </VBox>
-                            </HBox>
+                        <!-- title on 2 lines -->
+                        <VBox spacing="0">
+                            <Label text="Expertise" styleClass="card-title" />
+                            <Label text="locale"    styleClass="card-title" />
                         </VBox>
 
-                        <!-- RIGHT SECTION : image -->
-                        <StackPane prefWidth="380" prefHeight="380">
-                            <ImageView fitWidth="380"
-                                       fitHeight="380"
-                                       preserveRatio="true"
-                                       pickOnBounds="true">
+                        <Label text="Savoir-faire marocain authentique."
+                               wrapText="true"
+                               styleClass="card-desc"/>
+                    </VBox>
 
-                                <!-- Image source path -->
-                                <image>
-                                    <Image url="@images/bg.png"/>
-                                </image>
-                            </ImageView>
-                        </StackPane>
-                    </HBox>
-                </center>
+                    <!-- Card 2 -->
+                    <VBox spacing="12" styleClass="card" alignment="TOP_LEFT">
 
-            </BorderPane>
+                        <ImageView fitWidth="45" fitHeight="45" preserveRatio="true">
+                            <image>
+                                <Image url="@images/lightbulb.png"/>
+                            </image>
+                        </ImageView>
+
+                        <!-- title on 2 lines -->
+                        <VBox spacing="0">
+                            <Label text="Innovation" styleClass="card-title" />
+                            <Label text="continue"   styleClass="card-title" />
+                        </VBox>
+
+                        <Label text="Technologies modernes et durables."
+                               wrapText="true"
+                               styleClass="card-desc"/>
+                    </VBox>
+
+                    <!-- Card 3 -->
+                    <VBox spacing="12" styleClass="card" alignment="TOP_LEFT">
+
+                        <ImageView fitWidth="45" fitHeight="42" preserveRatio="true">
+                            <image>
+                                <Image url="@images/shakinghands.png"/>
+                            </image>
+                        </ImageView>
+
+                        <!-- title on 2 lines -->
+                        <VBox spacing="0">
+                            <Label text="Confiance et"  styleClass="card-title" />
+                            <Label text="transparence" styleClass="card-title" />
+                        </VBox>
+
+                        <Label text="Engagement clair et honnête."
+                               wrapText="true"
+                               styleClass="card-desc"/>
+                    </VBox>
+
+                </HBox> <!-- /HBox cards -->
+
+            </VBox> <!-- /VBox content -->
+
         </StackPane>
     </center>
 </BorderPane>

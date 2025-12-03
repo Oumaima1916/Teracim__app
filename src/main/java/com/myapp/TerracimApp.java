@@ -11,20 +11,38 @@ public class TerracimApp extends Application {
     @Override
     public void start(Stage stage) throws Exception {
 
-        Parent root = FXMLLoader.load(
+        FXMLLoader loader = new FXMLLoader(
                 getClass().getResource("/views/main_view.fxml")
         );
 
-        Scene scene = new Scene(root, 1100, 650);
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
 
+        // CSS dialek
         scene.getStylesheets().add(
                 getClass().getResource("/views/style.css").toExternalForm()
         );
 
+        // === HNA background dial l-image ===
+        String bgUrl = getClass().getResource("/views/images/bg.png").toExternalForm();
+
+        root.setStyle(
+                "-fx-background-image: url('" + bgUrl + "');" +
+                        "-fx-background-repeat: no-repeat;" +
+                        "-fx-background-position: right center;" +
+                        "-fx-background-size: cover;" +      // ila bghiti height only: "auto 100%"
+                        "-fx-padding: 40;"
+        );
+
         stage.setTitle("TERRACIM");
+        stage.setMinWidth(900);
+        stage.setMinHeight(600);
+        stage.setWidth(1200);
+        stage.setHeight(720);
         stage.setScene(scene);
         stage.show();
     }
+
 
     public static void main(String[] args) {
         launch(args);
