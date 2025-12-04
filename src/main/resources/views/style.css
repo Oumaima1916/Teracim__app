@@ -1,5 +1,5 @@
 /* =========================================================
-   ROOT
+   ROOT GLOBAL
    ========================================================= */
 .root {
     -fx-background-color: transparent;
@@ -10,9 +10,19 @@
    NAVBAR
    ========================================================= */
 .menu-item {
+    /* utilisé pour les Labels ET Buttons dans la navbar */
     -fx-text-fill: white;
-    -fx-font-size: 18px;
+    -fx-font-size: 19px;
     -fx-font-weight: 600;
+
+    /* pour les boutons Login / Register : enlever le fond par défaut */
+    -fx-background-color: transparent;
+    -fx-padding: 0 8 0 8;
+    -fx-cursor: hand;
+}
+
+.menu-item:hover {
+    -fx-underline: true;
 }
 
 /* =========================================================
@@ -72,10 +82,10 @@
 }
 
 /* =========================================================
-   FORM STYLES
+   FORM STYLES (formulaire client)
    ========================================================= */
 
-/* ===== FORM OUTER CONTAINER (BLUE CARD) ===== */
+/* Conteneur bleu */
 .form-container {
     -fx-background-color: #0082AC;
     -fx-background-radius: 22;
@@ -84,7 +94,7 @@
     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.18), 14, 0, 0, 4);
 }
 
-/* ===== WHITE INNER CARD ===== */
+/* Carte blanche intérieure */
 .form-inner {
     -fx-background-color: white;
     -fx-background-radius: 18;
@@ -92,30 +102,30 @@
     -fx-padding: 26 40 30 40;
 }
 
-/* ===== FORM TITLE ===== */
+/* Titre du formulaire */
 .form-title {
     -fx-text-fill: #0082AC;
-    -fx-font-size: 26px;      /* أكبر شوية من قبل */
+    -fx-font-size: 26px;
     -fx-font-weight: 800;
 }
 
-/* ===== FIELDS (TextField) ===== */
+/* Champs TextField */
 .form-field {
     -fx-background-color: white;
     -fx-text-fill: #0082AC;
-    -fx-font-size: 15px;      /* تكبير النص داخل الحقول */
+    -fx-font-size: 15px;
     -fx-prompt-text-fill: #7fa9be;
 
-    -fx-background-radius: 14;  /* radius أصغر */
+    -fx-background-radius: 14;
     -fx-border-radius: 14;
     -fx-border-color: #0082AC;
     -fx-border-width: 2;
 
     -fx-padding: 8 14 8 14;
-    -fx-pref-height: 46;       /* الحقل ولى أعلى */
+    -fx-pref-height: 46;
 }
 
-/* ===== TEXTAREA (Description du projet) ===== */
+/* TextArea (Description du projet) */
 .form-textarea {
     -fx-background-color: white;
     -fx-background-insets: 0;
@@ -132,12 +142,11 @@
 
     -fx-padding: 10 14 10 14;
 
-    /* باش مايبان حتى focus halo */
     -fx-focus-color: transparent;
     -fx-faint-focus-color: transparent;
 }
 
-/* نحيدو المستطيل الأزرق الفاتح لداخل الـ TextArea */
+/* Supprimer le fond bleu interne de la TextArea */
 .form-textarea .scroll-pane,
 .form-textarea .scroll-pane .viewport,
 .form-textarea .content {
@@ -146,18 +155,18 @@
     -fx-padding: 0;
 }
 
-/* حتى الزاوية الصغيرة ديال الـ ScrollPane */
 .form-textarea .scroll-pane .corner {
     -fx-background-color: transparent;
 }
-/* ===== SUBMIT BUTTON (Envoyer) ===== */
+
+/* Bouton Envoyer */
 .form-submit {
     -fx-background-color: #0082AC;
     -fx-text-fill: white;
-    -fx-font-size: 17px;       /* أكبر شوية */
+    -fx-font-size: 17px;
     -fx-font-weight: 700;
     -fx-background-radius: 999px;
-    -fx-padding: 10 40;        /* زر أعرض */
+    -fx-padding: 10 40;
     -fx-cursor: hand;
     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.18), 10, 0, 0, 3);
 }
@@ -166,7 +175,7 @@
     -fx-background-color: #0097c7;
 }
 
-/* ===== BACK BUTTON (Retour) أبيض ===== */
+/* Bouton Retour (dans le formulaire) */
 .form-back {
     -fx-background-color: white;
     -fx-text-fill: #0082AC;

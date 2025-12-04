@@ -11,12 +11,12 @@
             fx:controller="com.myapp.controller.MainController">
 
     <center>
-        <!-- هاد StackPane هو لي فيه الـ bg -->
+        <!-- Conteneur avec le background -->
         <StackPane fx:id="rootStack"
                    styleClass="hero-bg"
                    prefHeight="600">
 
-            <!-- هاد VBox هو محتوى الهوم، غادي نحتاجوه باش نرجعو ليه -->
+            <!-- Contenu de la page d'accueil -->
             <VBox fx:id="homeContent"
                   alignment="TOP_LEFT"
                   spacing="40">
@@ -26,15 +26,23 @@
 
                 <!-- NAVBAR -->
                 <HBox spacing="30">
-                    <Label text="Home"        styleClass="menu-item"/>
+                    <Label text="Acceuil"        styleClass="menu-item"/>
                     <Label text="À propos"    styleClass="menu-item"/>
                     <Label text="Contact"     styleClass="menu-item"/>
 
                     <Pane HBox.hgrow="ALWAYS"/>
-                    <Label text="Login / Register" styleClass="menu-item"/>
+
+                    <!-- Login et Register séparés -->
+                    <Button text="S'inscrire"
+                            styleClass="menu-item"
+                            onAction="#goToRegister"/>
+
+                    <Button text="Se connecter"
+                            styleClass="menu-item"
+                            onAction="#goToLogin"/>
                 </HBox>
 
-                <!-- TITLES + BUTTON -->
+                <!-- TITRES + BUTTON -->
                 <VBox spacing="15">
                     <Label text="Bâtissez en confiance,"
                            styleClass="title"/>

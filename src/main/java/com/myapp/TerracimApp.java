@@ -18,12 +18,10 @@ public class TerracimApp extends Application {
         Parent root = loader.load();
         Scene scene = new Scene(root);
 
-        // CSS dialek
         scene.getStylesheets().add(
                 getClass().getResource("/views/style.css").toExternalForm()
         );
 
-        // === HNA background dial l-image ===
         String bgUrl = getClass().getResource("/views/images/bg.png").toExternalForm();
 
         root.setStyle(
