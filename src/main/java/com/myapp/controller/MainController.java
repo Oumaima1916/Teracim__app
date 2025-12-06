@@ -10,123 +10,143 @@ import javafx.scene.layout.VBox;
 
 import java.io.IOException;
 
-
 public class MainController {
 
+    /* Conteneur principal (fond + contenu) */
     @FXML
     private StackPane rootStack;
 
+    /* Contenu de la page d’accueil (navbar + hero + cards) */
     @FXML
     private VBox homeContent;
 
+    /* Affiché au démarrage : l’écran d’accueil */
     @FXML
     private void initialize() {
         rootStack.getChildren().setAll(homeContent);
     }
 
-    /* =========================================================
-       FORMULAIRE CLIENT ("Commencer avec nous")
-       ========================================================= */
+    /* =======================
+       Accueil
+       ======================= */
 
-    @FXML
-    private void showForm(ActionEvent event) {
-        chargerVueDansRootStack("/views/client_form.fxml", true);
-    }
-
-    /* =========================================================
-       LOGIN - REGISTER
-       ========================================================= */
-
-    @FXML
-    private void goToLogin(ActionEvent event) {
-        try {
-            FXMLLoader loader = new FXMLLoader(
-                    getClass().getResource("/views/login.fxml")
-            );
-
-            Parent loginView = loader.load();
-
-            // Injecter le MainController dans LoginController
-            LoginController lc = loader.getController();
-            lc.setMainController(this);
-
-            rootStack.getChildren().setAll(loginView);
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-
-    @FXML
-    private void goToRegister() {
-        try {
-            // Chargement de la vue register.fxml
-            FXMLLoader loader = new FXMLLoader(
-                    getClass().getResource("/views/register.fxml")
-            );
-            Parent registerView = loader.load();
-
-            // Injection du MainController dans RegisterController
-            RegisterController rc = loader.getController();
-            rc.setMainController(this);
-
-            // Remplacement du contenu dans le StackPane principal
-            rootStack.getChildren().setAll(registerView);
-
-        } catch (IOException e) {
-            e.printStackTrace();
-
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Erreur");
-            alert.setHeaderText("Impossible d'ouvrir l'écran d'inscription");
-            alert.setContentText(e.getMessage());
-            alert.show();
-        }
-    }
-
-
-    /* =========================================================
-       RETOUR À LA HOME
-       ========================================================= */
     public void showHome() {
         rootStack.getChildren().setAll(homeContent);
     }
 
-    /* =========================================================
-       MÉTHODE UTILITAIRE PRIVÉE
-       ========================================================= */
+    /* =======================
+       Formulaire client
+       ======================= */
 
-    private void chargerVueDansRootStack(String fxmlPath, boolean injectMainController) {
+    @FXML
+    private void showForm(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
+            FXMLLoader loader = new FXMLLoader(
+                    getClass().getResource("/views/client_form.fxml")
+            );
+            Parent form = loader.load();
 
-            // Si on veut injecter ce contrôleur dans l’autre (ex : ClientFormController.setMainController)
-            if (injectMainController) {
-                // On laisse le contrôleur du FXML gérer l’injection après load()
-                Parent vue = loader.load();
+            ClientFormController controller = loader.getController();
+            controller.setMainController(this);
 
-                Object controller = loader.getController();
-                if (controller instanceof ClientFormController c) {
-                    c.setMainController(this);
-                }
-
-                rootStack.getChildren().setAll(vue);
-            } else {
-                // Chargement simple (par exemple pour login.fxml / register.fxml
-                // qui peuvent aussi utiliser MainController comme fx:controller)
-                Parent vue = loader.load();
-                rootStack.getChildren().setAll(vue);
-            }
+            rootStack.getChildren().setAll(form);
 
         } catch (IOException e) {
-            e.printStackTrace();
-
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Erreur de chargement");
-            alert.setHeaderText("Impossible de charger la vue");
-            alert.setContentText("FXML : " + fxmlPath + "\n\n" + e.getMessage());
-            alert.show();
+            showError("Impossible d'ouvrir le formulaire client", e);
         }
+    }
+
+    /* =======================
+       Login
+       ======================= */
+
+    @FXML
+    public void showLogin(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(
+                    getClass().getResource("/views/login.fxml")
+            );
+            Parent loginRoot = loader.load();
+
+            LoginController controller = loader.getController();
+            controller.setMainController(this);
+
+            rootStack.getChildren().setAll(loginRoot);
+
+        } catch (IOException e) {
+            showError("Impossible d'ouvrir l'écran de connexion", e);
+        }
+    }
+
+    /* Permet d’appeler showLogin() sans ActionEvent (depuis RegisterController par ex.) */
+    public void showLogin() {
+        showLogin(null);
+    }
+
+    @FXML
+    private void goToRegister(ActionEvent event) {
+        showRegister(event);
+    }
+
+    /* =======================
+       Register
+       ======================= */
+
+    @FXML
+    public void showRegister(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(
+                    getClass().getResource("/views/register.fxml")
+            );
+            Parent registerRoot = loader.load();
+
+            RegisterController controller = loader.getController();
+            controller.setMainController(this);
+
+            rootStack.getChildren().setAll(registerRoot);
+
+        } catch (IOException e) {
+            showError("Impossible d'ouvrir l'écran d'inscription", e);
+        }
+    }
+
+    @FXML
+    private void goToLogin(ActionEvent event) {
+        showLogin(event);
+    }
+
+    /* =======================
+       Dashboard Chef de chantier
+       ======================= */
+
+    /** Appelé depuis LoginController après une connexion réussie */
+    public void showChefDashboard() {
+        try {
+            FXMLLoader loader = new FXMLLoader(
+                    getClass().getResource("/views/chefchantier/chef_dashboard.fxml")
+            );
+            Parent dashboardRoot = loader.load();
+
+            ChefDashboardController controller = loader.getController();
+            controller.setMainController(this); // si tu veux pouvoir revenir/communiquer
+
+            rootStack.getChildren().setAll(dashboardRoot);
+
+        } catch (IOException e) {
+            showError("Impossible d'ouvrir le tableau de bord du chef de chantier", e);
+        }
+    }
+
+    /* =======================
+       Utilitaire d’affichage d’erreur
+       ======================= */
+
+    private void showError(String msg, Exception e) {
+        e.printStackTrace();
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Erreur");
+        alert.setHeaderText(msg);
+        alert.setContentText(e.getMessage());
+        alert.show();
     }
 }

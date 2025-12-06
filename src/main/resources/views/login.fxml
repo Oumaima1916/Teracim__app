@@ -24,7 +24,7 @@
                         onAction="#goBack"/>
             </HBox>
 
-
+            <!-- TITRE -->
             <Label text="Accédez à votre espace personnel"
                    styleClass="form-title"
                    alignment="CENTER"/>

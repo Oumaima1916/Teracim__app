@@ -1,0 +1,156 @@
+/* Font + reset léger */
+.root {
+    -fx-font-family: "Segoe UI", Arial, system-ui;
+}
+
+/* -------- TOP BAR -------- */
+
+.dash-topbar {
+    -fx-background-color: transparent;
+}
+
+.dash-menu-item {
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-font-weight: 600;
+    -fx-opacity: 0.7;
+}
+
+.dash-menu-item:hover {
+    -fx-opacity: 1.0;
+    -fx-cursor: hand;
+}
+
+.dash-menu-active {
+    -fx-opacity: 1.0;
+    -fx-underline: true;
+}
+
+.dash-icon {
+    -fx-text-fill: white;
+    -fx-font-size: 18px;
+}
+
+.dash-avatar {
+    -fx-background-color: white;
+    -fx-text-fill: #0082AC;
+    -fx-font-weight: 700;
+    -fx-padding: 6 12;
+    -fx-background-radius: 999px;
+    -fx-border-radius: 999px;
+}
+
+/* -------- COLONNE GAUCHE (chantier) -------- */
+
+.dash-main-card {
+    -fx-background-color: rgba(255,255,255,0.15);
+    -fx-background-radius: 22;
+    -fx-padding: 24 26 24 26;
+}
+
+.dash-project-title {
+    -fx-text-fill: white;
+    -fx-font-size: 22px;
+    -fx-font-weight: 800;
+}
+
+.dash-project-subtitle {
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-opacity: 0.85;
+}
+
+.dash-project-text {
+    -fx-text-fill: white;
+    -fx-font-size: 13px;
+    -fx-opacity: 0.95;
+}
+
+/* cercle 40% (fake) */
+.dash-progress-circle {
+    -fx-min-width: 110;
+    -fx-min-height: 110;
+    -fx-max-width: 110;
+    -fx-max-height: 110;
+
+    -fx-background-color: transparent;
+    -fx-border-color: white;
+    -fx-border-width: 6;
+    -fx-border-radius: 999px;
+    -fx-background-radius: 999px;
+
+    -fx-alignment: center;
+}
+
+.dash-progress-label {
+    -fx-text-fill: white;
+    -fx-font-size: 26px;
+    -fx-font-weight: 800;
+}
+
+/* mini photos */
+.dash-mini-photo {
+    -fx-pref-width: 90;
+    -fx-pref-height: 70;
+    -fx-background-radius: 16;
+    -fx-background-color: rgba(255,255,255,0.8);
+}
+
+/* bouton "Voir toutes les photos" */
+.dash-secondary-btn {
+    -fx-background-color: white;
+    -fx-text-fill: #0082AC;
+    -fx-font-weight: 700;
+    -fx-background-radius: 999px;
+    -fx-padding: 8 24;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 10, 0, 0, 2);
+    -fx-cursor: hand;
+}
+
+.dash-secondary-btn:hover {
+    -fx-background-color: #f4fbff;
+}
+
+/* -------- CARTES DE DROITE -------- */
+
+.dash-card {
+    -fx-background-color: white;
+    -fx-background-radius: 18;
+    -fx-padding: 18 20 18 20;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.16), 10, 0, 0, 3);
+}
+
+.dash-card-title {
+    -fx-text-fill: #0082AC;
+    -fx-font-weight: 700;
+    -fx-font-size: 15px;
+}
+
+.dash-card-line {
+    -fx-text-fill: #0082AC;
+    -fx-font-size: 13px;
+}
+
+/* états (OK / alerte) */
+.dash-card-line.ok {
+    -fx-text-fill: #1FA364;
+}
+
+.dash-card-line.alert {
+    -fx-text-fill: #D64242;
+}
+
+/* petit bouton dans les cartes */
+.dash-small-btn {
+    -fx-background-color: #0082AC;
+    -fx-text-fill: white;
+    -fx-font-size: 13px;
+    -fx-font-weight: 600;
+    -fx-background-radius: 999px;
+    -fx-padding: 6 18;
+    -fx-cursor: hand;
+}
+
+.dash-small-btn:hover {
+    -fx-background-color: #0097c7;
+}

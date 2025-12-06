@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+<?import java.net.URL?>
+
+<BorderPane xmlns="http://javafx.com/javafx/25"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.myapp.controller.ChefDashboardController">
+    <stylesheets>
+        <URL value="@chef_dashboard.css"/>
+    </stylesheets>
+
+    <!-- Barre du haut -->
+    <top>
+        <HBox spacing="40" alignment="CENTER_LEFT"
+              styleClass="dash-topbar">
+            <padding>
+                <Insets top="20" right="40" bottom="20" left="40"/>
+            </padding>
+
+            <Label text="Accueil"    styleClass="dash-menu-item dash-menu-active"/>
+            <Label text="Tâches"     styleClass="dash-menu-item"/>
+            <Label text="Matériaux"  styleClass="dash-menu-item"/>
+            <Label text="Équipe"     styleClass="dash-menu-item"/>
+
+            <Pane HBox.hgrow="ALWAYS"/>
+
+            <!-- Icônes / profil -->
+            <Label text="🔔" styleClass="dash-icon"/>
+            <Label text="YC" styleClass="dash-avatar"/>
+        </HBox>
+    </top>
+
+    <!-- Contenu principal -->
+    <center>
+        <HBox spacing="30">
+            <padding>
+                <Insets top="20" right="40" bottom="30" left="40"/>
+            </padding>
+
+            <!-- Colonne gauche : chantier -->
+            <VBox spacing="20" HBox.hgrow="ALWAYS" maxWidth="420"
+                  styleClass="dash-main-card">
+
+                <VBox spacing="4">
+                    <Label text="Chantier Lycée Al Wifaq" styleClass="dash-project-title"/>
+                    <Label text="Chef de chantier – Youssef M."
+                           styleClass="dash-project-subtitle"/>
+                </VBox>
+
+                <HBox spacing="18" alignment="CENTER_LEFT">
+                    <StackPane styleClass="dash-progress-circle">
+                        <Label text="40%" styleClass="dash-progress-label"/>
+                    </StackPane>
+
+                    <Label wrapText="true" maxWidth="260"
+                           text="Ce chantier comprend la construction de nouveaux bâtiments scolaires et d’espaces sportifs, avec une livraison prévue en juin 2026."
+                           styleClass="dash-project-text"/>
+                </HBox>
+
+                <HBox spacing="14">
+                    <Region styleClass="dash-mini-photo"/>
+                    <Region styleClass="dash-mini-photo"/>
+                    <Region styleClass="dash-mini-photo"/>
+                </HBox>
+
+                <Button text="Voir toutes les photos"
+                        styleClass="dash-secondary-btn"/>
+            </VBox>
+
+            <!-- Colonne droite : cartes -->
+            <GridPane hgap="20" vgap="20" HBox.hgrow="ALWAYS">
+
+                <columnConstraints>
+                    <ColumnConstraints percentWidth="50"/>
+                    <ColumnConstraints percentWidth="50"/>
+                </columnConstraints>
+
+                <!-- Derniers rapports -->
+                <VBox GridPane.columnIndex="0" GridPane.rowIndex="0"
+                      spacing="10" styleClass="dash-card">
+                    <Label text="Derniers rapports de chantier"
+                           styleClass="dash-card-title"/>
+
+                    <VBox spacing="6">
+                        <Label text="• Rapport journalier – 12 déc"
+                               styleClass="dash-card-line"/>
+                        <Label text="• Rapport sécurité – 11 déc"
+                               styleClass="dash-card-line"/>
+                        <Label text="• Rapport bétonnage – 10 déc"
+                               styleClass="dash-card-line"/>
+                    </VBox>
+
+                    <Button text="Voir tous les rapports"
+                            styleClass="dash-small-btn"/>
+                </VBox>
+
+                <!-- Tâches -->
+                <VBox GridPane.columnIndex="1" GridPane.rowIndex="0"
+                      spacing="10" styleClass="dash-card">
+                    <Label text="Tâches à venir"
+                           styleClass="dash-card-title"/>
+
+                    <VBox spacing="6">
+                        <Label text="• Pose des armatures – Bloc B"
+                               styleClass="dash-card-line"/>
+                        <Label text="• Coffrage des poteaux – Bloc A"
+                               styleClass="dash-card-line"/>
+                        <Label text="• Réception livraison acier"
+                               styleClass="dash-card-line"/>
+                    </VBox>
+
+                    <Button text="Voir le détail des tâches"
+                            styleClass="dash-small-btn"/>
+                </VBox>
+
+                <!-- Matériaux -->
+                <VBox GridPane.columnIndex="0" GridPane.rowIndex="1"
+                      spacing="10" styleClass="dash-card">
+                    <Label text="Matériaux à surveiller"
+                           styleClass="dash-card-title"/>
+
+                    <VBox spacing="6">
+                        <Label text="• Acier HA12 – stock bas"
+                               styleClass="dash-card-line alert"/>
+                        <Label text="• Ciment – livraison prévue demain"
+                               styleClass="dash-card-line"/>
+                        <Label text="• Bois de coffrage – OK"
+                               styleClass="dash-card-line ok"/>
+                    </VBox>
+
+                    <Button text="Gérer les matériaux"
+                            styleClass="dash-small-btn"/>
+                </VBox>
+
+                <!-- Sécurité & météo -->
+                <VBox GridPane.columnIndex="1" GridPane.rowIndex="1"
+                      spacing="10" styleClass="dash-card">
+                    <Label text="Sécurité &amp; météo"
+                           styleClass="dash-card-title"/>
+
+                    <VBox spacing="6">
+                        <Label text="• Aucun incident signalé aujourd’hui"
+                               styleClass="dash-card-line ok"/>
+                        <Label text="• Vent modéré prévu cet après-midi"
+                               styleClass="dash-card-line"/>
+                        <Label text="• Vérifier fixation des échafaudages"
+                               styleClass="dash-card-line alert"/>
+                    </VBox>
+
+                    <Button text="Consulter les alertes"
+                            styleClass="dash-small-btn"/>
+                </VBox>
+
+            </GridPane>
+        </HBox>
+    </center>
+
+</BorderPane>

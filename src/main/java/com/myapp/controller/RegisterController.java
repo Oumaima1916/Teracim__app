@@ -15,15 +15,14 @@ public class RegisterController {
     @FXML private PasswordField passwordField;
     @FXML private PasswordField confirmPasswordField;
 
-    // Référence vers le contrôleur principal pour la navigation
+    // Pour la navigation
     private MainController mainController;
 
-    /** Injecté par MainController après le chargement du FXML. */
     public void setMainController(MainController mainController) {
         this.mainController = mainController;
     }
 
-    /** Bouton "Retour" : revenir à la page d'accueil. */
+    // Bouton "Retour" → home
     @FXML
     private void goBack(ActionEvent event) {
         if (mainController != null) {
@@ -33,7 +32,7 @@ public class RegisterController {
         }
     }
 
-    /** Bouton "Créer mon compte" : validation simple + message. */
+    // Bouton "S'inscrire"
     @FXML
     private void handleRegister(ActionEvent event) {
 
@@ -43,7 +42,7 @@ public class RegisterController {
         String pwd      = passwordField.getText();
         String confirm  = confirmPasswordField.getText();
 
-        // Validation de base
+        // Vérifs basiques
         if (fullName.isBlank() || email.isBlank() || pwd.isBlank() || confirm.isBlank()) {
             showAlert(Alert.AlertType.WARNING,
                     "Champs manquants",
@@ -72,21 +71,28 @@ public class RegisterController {
             return;
         }
 
-        //tu pourras ajouter la logique réelle : enregistrement BD / API…
-        System.out.println("Nouvel utilisateur :");
+        // TODO: enregistrer vraiment l'utilisateur (BD / fichier / API…)
+        System.out.println("Nouveau compte chef :");
         System.out.println("Nom   : " + fullName);
         System.out.println("Email : " + email);
         System.out.println("Tél   : " + phone);
 
+        // Message OK
         showAlert(Alert.AlertType.INFORMATION,
                 "Inscription",
-                "Votre compte a été créé avec succès (simulation).");
+                "Compte créé (mock). Vous pouvez vous connecter.");
 
-        // Optionnel : vider les champs
+        // Nettoyer un peu le formulaire
         passwordField.clear();
         confirmPasswordField.clear();
+
+        // Redirection vers la page de login
+        if (mainController != null) {
+            mainController.showLogin(null);
+        }
     }
 
+    // Boîte de dialogue utilitaire
     private void showAlert(Alert.AlertType type, String title, String msg) {
         Alert alert = new Alert(type);
         alert.setTitle(title);

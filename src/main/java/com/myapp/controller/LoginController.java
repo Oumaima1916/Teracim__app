@@ -12,53 +12,67 @@ public class LoginController {
     @FXML private TextField emailField;
     @FXML private PasswordField passwordField;
 
-    // Référence vers MainController (pour navigation)
+    // Référence vers MainController (navigation)
     private MainController mainController;
 
-    /** Injection du MainController par le parent */
     public void setMainController(MainController mainController) {
         this.mainController = mainController;
     }
 
-    /** Bouton Retour → revenir vers la home */
+    // Bouton "Retour" → accueil
     @FXML
     private void goBack(ActionEvent event) {
         if (mainController != null) {
             mainController.showHome();
         } else {
-            System.out.println("⚠ mainController == null → setMainController() non appelé");
+            System.out.println("mainController == null (setMainController non appelé)");
         }
     }
 
-    /** Bouton Se connecter */
+    // Bouton "Se connecter"
     @FXML
     private void handleLogin(ActionEvent event) {
 
-        String email = emailField.getText();
+        String email = emailField.getText().trim();
         String pwd   = passwordField.getText();
 
-        // Validation simple
-        if (email.isBlank() || pwd.isBlank()) {
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Champs manquants");
-            alert.setHeaderText(null);
-            alert.setContentText("Veuillez remplir l’adresse e-mail et le mot de passe.");
-            alert.show();
+        // Vérif champs
+        if (email.isEmpty() || pwd.isEmpty()) {
+            showAlert(Alert.AlertType.WARNING,
+                    "Champs manquants",
+                    "Veuillez remplir l’adresse e-mail et le mot de passe.");
             return;
         }
 
-        // Debug login (mock)
-        System.out.println("Login attempt:");
-        System.out.println("Email : " + email);
-        System.out.println("Pass  : " + pwd);
+        // Authentification MOCK (à remplacer par vraie logique)
+        boolean authOK = email.equals("chef@demo.com") && pwd.equals("123456");
 
-        Alert ok = new Alert(Alert.AlertType.INFORMATION);
-        ok.setTitle("Connexion");
-        ok.setHeaderText(null);
-        ok.setContentText("Connexion réussie (simulation).");
-        ok.show();
+        if (!authOK) {
+            showAlert(Alert.AlertType.ERROR,
+                    "Connexion",
+                    "Identifiants incorrects (simulation).");
+            return;
+        }
 
-        // Vider seulement le mot de passe
+        // Succès
+        showAlert(Alert.AlertType.INFORMATION,
+                "Connexion",
+                "Connexion réussie (simulation).");
+
         passwordField.clear();
+
+        // Aller vers le dashboard chef
+        if (mainController != null) {
+            mainController.showChefDashboard();
+        }
+    }
+
+    // Petite méthode utilitaire
+    private void showAlert(Alert.AlertType type, String title, String msg) {
+        Alert alert = new Alert(type);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(msg);
+        alert.show();
     }
 }
