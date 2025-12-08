@@ -94,3 +94,131 @@
     -fx-text-fill: #667b8a;
     -fx-font-size: 15px;
 }
+
+/* ===== TOPBAR PROFIL CHEF ===== */
+.chef-topbar {
+    -fx-background-color: transparent;
+}
+
+.topbar-icon {
+    -fx-cursor: hand;
+    -fx-opacity: 0.95;
+}
+
+.topbar-icon:hover {
+    -fx-opacity: 1;
+}
+
+/* ===== SIDEBAR ===== */
+.chef-side-menu {
+    -fx-background-color: #ffffff;
+    -fx-padding: 35 32 35 32;
+    -fx-background-radius: 24;
+    -fx-min-width: 210;
+    -fx-spacing: 20;
+}
+
+.chef-side-item {
+    -fx-text-fill: #0082AC;
+    -fx-font-size: 16px;
+    -fx-font-weight: 600;
+}
+
+.chef-side-item:hover {
+    -fx-opacity: 0.8;
+    -fx-cursor: hand;
+}
+
+.chef-side-active {
+    -fx-text-fill: #0082AC;
+}
+
+/* ===== CONTENU PROFIL ===== */
+.chef-profile-wrapper {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 24;
+    -fx-padding: 24 30 26 30;
+    -fx-spacing: 18;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.10), 12, 0, 0, 3);
+}
+
+.chef-profile-title {
+    -fx-text-fill: #0082AC;
+    -fx-font-size: 22px;
+    -fx-font-weight: 700;
+}
+
+.chef-profile-subtitle {
+    -fx-text-fill: #00A5D1;
+    -fx-font-size: 13px;
+}
+
+/* carte interne */
+.chef-profile-card {
+    -fx-background-color: #fff7f1;
+    -fx-background-radius: 22;
+    -fx-padding: 20 24 22 24;
+    -fx-spacing: 16;
+}
+
+/* avatar */
+.chef-avatar-circle {
+    -fx-background-color: #e7f6fb;
+    -fx-background-radius: 999px;
+    -fx-min-width: 64;
+    -fx-min-height: 64;
+    -fx-pref-width: 64;
+    -fx-pref-height: 64;
+    -fx-max-width: 64;
+    -fx-max-height: 64;
+    -fx-alignment: center;
+}
+
+.chef-name {
+    -fx-text-fill: #0082AC;
+    -fx-font-size: 18px;
+    -fx-font-weight: 700;
+}
+
+.chef-role {
+    -fx-text-fill: #555555;
+    -fx-font-size: 13px;
+}
+
+/* infos */
+.chef-info-row { }
+
+.chef-info-text {
+    -fx-text-fill: #444444;
+    -fx-font-size: 13px;
+}
+
+/* boutons */
+.chef-btn {
+    -fx-font-size: 13px;
+    -fx-font-weight: 600;
+    -fx-padding: 8 20;
+    -fx-background-radius: 999px;
+    -fx-cursor: hand;
+}
+
+.chef-btn-primary {
+    -fx-background-color: #0082AC;
+    -fx-text-fill: #ffffff;
+}
+
+.chef-btn-primary:hover {
+    -fx-background-color: #006b8c;
+}
+
+.chef-btn-secondary {
+    -fx-background-color: #ffffff;
+    -fx-text-fill: #0082AC;
+    -fx-border-color: #0082AC;
+    -fx-border-width: 1;
+    -fx-border-radius: 999px;
+}
+
+.chef-btn-secondary:hover {
+    -fx-background-color: #f0fbff;
+}

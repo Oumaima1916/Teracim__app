@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import java.net.URL?>
+
+<BorderPane xmlns="http://javafx.com/javafx/25"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.myapp.controller.ChefProfileController">
+
+    <!-- نفس CSS لي عندك -->
+    <stylesheets>
+        <URL value="@chef_dashboard.css"/>
+    </stylesheets>
+
+    <!-- TOPBAR (notifications + profil) -->
+    <top>
+        <HBox alignment="CENTER_RIGHT" styleClass="chef-topbar">
+            <padding>
+                <Insets top="15" right="40" bottom="15" left="40"/>
+            </padding>
+
+            <Pane HBox.hgrow="ALWAYS"/>
+
+            <!-- notification -->
+            <ImageView fitWidth="24" fitHeight="24" preserveRatio="true" styleClass="topbar-icon">
+                <image>
+                    <Image url="@../images/notification.png"/>
+                </image>
+            </ImageView>
+
+            <!-- profil -->
+            <ImageView fitWidth="26" fitHeight="26" preserveRatio="true" styleClass="topbar-icon">
+                <image>
+                    <Image url="@../images/profile.png"/>
+                </image>
+            </ImageView>
+        </HBox>
+    </top>
+
+    <!-- CONTENU : sidebar + carte profil -->
+    <center>
+        <HBox spacing="30" alignment="TOP_LEFT">
+            <padding>
+                <Insets top="25" right="40" bottom="30" left="40"/>
+            </padding>
+
+            <!-- SIDEBAR -->
+            <VBox spacing="18" styleClass="chef-side-menu">
+                <Label text="Accueil"    styleClass="chef-side-item chef-side-active"/>
+                <Label text="Messages"   styleClass="chef-side-item"/>
+                <Label text="Paramètres" styleClass="chef-side-item"/>
+            </VBox>
+
+            <!-- BLOC PROFIL -->
+            <VBox spacing="18" styleClass="chef-profile-wrapper">
+
+                <!-- titre + sous-titre -->
+                <VBox spacing="4">
+                    <Label text="Profil du chef de chantier" styleClass="chef-profile-title"/>
+                    <Label text="Gérez vos informations et vos chantiers principaux"
+                           styleClass="chef-profile-subtitle"/>
+                </VBox>
+
+                <!-- CARTE PROFIL -->
+                <VBox spacing="20" styleClass="chef-profile-card">
+
+                    <!-- header : avatar + nom -->
+                    <HBox spacing="16" alignment="CENTER_LEFT">
+                        <StackPane styleClass="chef-avatar-circle">
+                            <ImageView fitWidth="44" fitHeight="44" preserveRatio="true">
+                                <image>
+                                    <!-- t9dar tst3mel crane.png ila bghiti -->
+                                    <Image url="@../images/profile.png"/>
+                                </image>
+                            </ImageView>
+                        </StackPane>
+
+                        <VBox spacing="2">
+                            <Label text="Youssef El Amrani" styleClass="chef-name"/>
+                            <Label text="Chef de chantier TERRACIM depuis mars 2021"
+                                   styleClass="chef-role"/>
+                        </VBox>
+                    </HBox>
+
+                    <!-- INFOS  -->
+                    <VBox spacing="10">
+
+                        <!-- Projet principal -->
+                        <HBox spacing="10" alignment="CENTER_LEFT" styleClass="chef-info-row">
+                            <ImageView fitWidth="20" fitHeight="20" preserveRatio="true">
+                                <image>
+                                    <Image url="@../images/project.png"/>
+                                </image>
+                            </ImageView>
+                            <Label text="Chantier principal : Résidence Corniche Prestige"
+                                   styleClass="chef-info-text"/>
+                        </HBox>
+
+                        <!-- Localisation -->
+                        <HBox spacing="10" alignment="CENTER_LEFT" styleClass="chef-info-row">
+                            <ImageView fitWidth="20" fitHeight="20" preserveRatio="true">
+                                <image>
+                                    <Image url="@../images/location.png"/>
+                                </image>
+                            </ImageView>
+                            <Label text="Zone : Avenue de la Corniche, Quartier Founty, Agadir"
+                                   styleClass="chef-info-text"/>
+                        </HBox>
+
+                        <!-- Date d’affectation -->
+                        <HBox spacing="10" alignment="CENTER_LEFT" styleClass="chef-info-row">
+                            <ImageView fitWidth="20" fitHeight="20" preserveRatio="true">
+                                <image>
+                                    <!-- ma3ndnach calendar, nst3mlo crane.png -->
+                                    <Image url="@../images/crane.png"/>
+                                </image>
+                            </ImageView>
+                            <Label text="Date d’affectation : 15 juillet 2024"
+                                   styleClass="chef-info-text"/>
+                        </HBox>
+
+                        <!-- Email pro -->
+                        <HBox spacing="10" alignment="CENTER_LEFT" styleClass="chef-info-row">
+                            <ImageView fitWidth="20" fitHeight="20" preserveRatio="true">
+                                <image>
+                                    <Image url="@../images/email.png"/>
+                                </image>
+                            </ImageView>
+                            <Label text="Email professionnel : youssef.elamrani@terracim.com"
+                                   styleClass="chef-info-text"/>
+                        </HBox>
+
+                        <!-- Téléphone -->
+                        <HBox spacing="10" alignment="CENTER_LEFT" styleClass="chef-info-row">
+                            <ImageView fitWidth="20" fitHeight="20" preserveRatio="true">
+                                <image>
+                                    <Image url="@../images/phone.png"/>
+                                </image>
+                            </ImageView>
+                            <Label text="Téléphone : +212 6 78 45 32 10"
+                                   styleClass="chef-info-text"/>
+                        </HBox>
+
+                    </VBox>
+
+                    <!-- BOUTONS -->
+                    <HBox spacing="12" alignment="CENTER_LEFT">
+                        <Button text="Voir les chantiers"
+                                styleClass="chef-btn chef-btn-primary"/>
+                        <Button text="Signaler un incident"
+                                styleClass="chef-btn chef-btn-secondary"/>
+                    </HBox>
+
+                </VBox>
+            </VBox>
+        </HBox>
+    </center>
+
+</BorderPane>
