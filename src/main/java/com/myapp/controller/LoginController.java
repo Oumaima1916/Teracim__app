@@ -54,11 +54,6 @@ public class LoginController {
             return;
         }
 
-        // Succès
-        showAlert(Alert.AlertType.INFORMATION,
-                "Connexion",
-                "Connexion réussie (simulation).");
-
         passwordField.clear();
 
         // Aller vers le dashboard chef

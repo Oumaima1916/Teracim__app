@@ -13,7 +13,7 @@
 
     <!-- Feuille de style spécifique au dashboard chef -->
     <stylesheets>
-        <URL value="@chef_dashboard.css"/>
+        <URL value="@chef_chantier.css"/>
     </stylesheets>
 
     <!-- NAVBAR / TOPBAR -->
@@ -26,7 +26,7 @@
             <!-- menu -->
             <Label text="Accueil"    styleClass="dash-menu-item"/>
             <Label text="Messages"   styleClass="dash-menu-item"/>
-            <Label text="Paramètres" styleClass="dash-menu-item"/>
+            <Label text="Paramètres" styleClass="dash-menu-item" onMouseClicked="#openParametres"/>
 
             <Pane HBox.hgrow="ALWAYS"/>
 
@@ -37,19 +37,12 @@
                     <Image url="@../images/notification.png"/>
                 </image>
             </ImageView>
-
-            <!-- profile icon -->
-            <ImageView fitWidth="30" fitHeight="30">
-                <image>
-                    <Image url="@../images/profile.png"/>
-                </image>
-            </ImageView>
         </HBox>
     </top>
 
     <!-- CONTENU PRINCIPAL -->
     <center>
-        <VBox spacing="25">
+        <VBox fx:id="sidebar" spacing="25">
             <padding>
                 <Insets top="20" left="40" right="40" bottom="30"/>
             </padding>
