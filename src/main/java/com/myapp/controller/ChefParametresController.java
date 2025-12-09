@@ -35,7 +35,7 @@ public class ChefParametresController {
         themeSombreRadio.setToggleGroup(themeGroup);
         themeClairRadio.setSelected(true);
 
-        // champs en lecture seule
+
         setEditionActive(false);
     }
 

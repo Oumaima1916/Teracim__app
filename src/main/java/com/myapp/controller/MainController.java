@@ -26,9 +26,9 @@ public class MainController {
         rootStack.getChildren().setAll(homeContent);
     }
 
-    /* =======================
+    /* ======================
        Accueil
-       ======================= */
+       ====================== */
 
     public void showHome() {
         rootStack.getChildren().setAll(homeContent);

@@ -16,7 +16,7 @@
                    styleClass="hero-bg"
                    prefHeight="600">
 
-            <!-- Contenu de la page d'accueil -->
+            <!-- Contenu de page d'accueil -->
             <VBox fx:id="homeContent"
                   alignment="TOP_LEFT"
                   spacing="40">

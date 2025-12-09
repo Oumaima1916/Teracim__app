@@ -29,7 +29,6 @@ public class LoginController {
         }
     }
 
-    // Bouton "Se connecter"
     @FXML
     private void handleLogin(ActionEvent event) {
 

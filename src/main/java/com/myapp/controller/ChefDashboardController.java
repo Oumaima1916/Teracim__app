@@ -1,9 +1,9 @@
 package com.myapp.controller;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -16,29 +16,26 @@ public class ChefDashboardController {
     }
 
     @FXML
-    private VBox sidebar;
-
+    private VBox rootContainer;
     @FXML
     private void initialize() {
         System.out.println("ChefDashboardController initialized");
     }
 
     @FXML
-    private void openAcceuil(MouseEvent event) {
-        System.out.println("Accueil clicked (pour l’instant ma kaydir walou)");
+    private void openAddProject(javafx.event.ActionEvent event) {
+        System.out.println("Bouton 'Ajouter un projet' cliqué");
     }
 
-    // ---- Paramètres -----
     @FXML
     private void openParametres() {
         try {
             FXMLLoader loader = new FXMLLoader(
                     getClass().getResource("/views/chefchantier/chef_parametres.fxml")
             );
-
             Parent root = loader.load();
 
-            Stage stage = (Stage) sidebar.getScene().getWindow();
+            Stage stage = (Stage) rootContainer.getScene().getWindow();
             stage.getScene().setRoot(root);
 
         } catch (Exception e) {
@@ -46,5 +43,4 @@ public class ChefDashboardController {
             e.printStackTrace();
         }
     }
-
 }
