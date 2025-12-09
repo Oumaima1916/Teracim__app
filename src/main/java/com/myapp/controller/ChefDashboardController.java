@@ -6,7 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-
+//les classes
 public class ChefDashboardController {
 
     private MainController mainController;
