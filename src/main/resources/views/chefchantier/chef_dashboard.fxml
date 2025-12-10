@@ -33,7 +33,6 @@
             <!-- notif icon -->
             <ImageView fitWidth="30" fitHeight="30">
                 <image>
-                    <!-- تعديل المسار حسب فين حاط الصور -->
                     <Image url="@../images/notification.png"/>
                 </image>
             </ImageView>
@@ -52,7 +51,6 @@
                 <Label text="Les projets en cours" styleClass="dash-main-title"/>
                 <Pane HBox.hgrow="ALWAYS"/>
 
-                <!-- هــنــا زدت onAction -->
                 <Button fx:id="addBtn"
                         text="Ajouter un projet"
                         styleClass="dash-add-btn"

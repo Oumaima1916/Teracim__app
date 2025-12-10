@@ -35,7 +35,6 @@ public class AjouterProjetController {
 
     @FXML
     public void initialize() {
-        // تعمير combo état مبدئياً
         if (etatCombo != null) {
             etatCombo.getItems().addAll("En cours", "Terminé", "En pause");
         }
@@ -50,12 +49,10 @@ public class AjouterProjetController {
         System.out.println("Adresse = " + adresseField.getText());
         System.out.println("Etat = " + etatCombo.getValue());
         System.out.println("Description = " + descriptionArea.getText());
-        // men b3d tzid DAO / DB
     }
 
     @FXML
     private void onRetourClicked() {
-        // إغلاق الفورم
         Stage stage = (Stage) retourButton.getScene().getWindow();
         stage.close();
     }

@@ -24,15 +24,12 @@
             onAction="#onRetourClicked"
             styleClass="ajoutprojet-btn-retour"/>
 
-    <!-- الكارتة البيضا ديال الفورم -->
     <VBox layoutX="80" layoutY="120"
           styleClass="ajoutprojet-card">
 
-        <!-- العنوان -->
         <Label text="Ajouter un nouveau projet"
                styleClass="ajoutprojet-title"/>
 
-        <!-- الفورم جوج كولونات بحال الصورة -->
         <GridPane styleClass="ajoutprojet-grid">
             <columnConstraints>
                 <ColumnConstraints percentWidth="50"/>
@@ -78,7 +75,6 @@
                   wrapText="true"
                   styleClass="ajoutprojet-textarea"/>
 
-        <!-- الأزرار في الأسفل -->
         <HBox alignment="CENTER_RIGHT" spacing="12">
             <Button text="Annuler"
                     onAction="#onRetourClicked"

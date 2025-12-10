@@ -137,9 +137,6 @@ public class ChefDashboardController {
         loadIntoCenter("/views/chefchantier/messages_chef.fxml");
     }
 
-    /**
-     * Charge un FXML dans le center du BorderPane (ou dans rootContainer si rootPane est null).
-     */
     private void loadIntoCenter(String resourcePath) {
         try {
             URL url = getClass().getResource(resourcePath);
