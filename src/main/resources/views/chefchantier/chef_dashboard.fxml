@@ -154,7 +154,7 @@
                            styleClass="project-desc"/>
                 </VBox>
 
-                <!-- PROJECT CARD 4 -->
+                <!-- CARD 4 -->
                 <VBox spacing="8" styleClass="project-card"
                       GridPane.columnIndex="1" GridPane.rowIndex="1">
 

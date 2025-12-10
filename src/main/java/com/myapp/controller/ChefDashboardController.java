@@ -141,7 +141,6 @@ public class ChefDashboardController {
         try {
             URL url = getClass().getResource(resourcePath);
             if (url == null) {
-                // fallback ClassLoader
                 String p = resourcePath.startsWith("/") ? resourcePath.substring(1) : resourcePath;
                 url = Thread.currentThread().getContextClassLoader().getResource(p);
             }

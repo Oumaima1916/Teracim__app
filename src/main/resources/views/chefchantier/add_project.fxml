@@ -54,7 +54,7 @@
                        GridPane.rowIndex="2" GridPane.columnIndex="0"
                        styleClass="settings-input"/>
 
-            <!-- Adresse du chantier -->
+            <!-- Adresse-->
             <TextField fx:id="adresseField"
                        promptText="Adresse du chantier"
                        GridPane.rowIndex="0" GridPane.columnIndex="1"

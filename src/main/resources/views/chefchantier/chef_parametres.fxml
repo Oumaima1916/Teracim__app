@@ -23,7 +23,7 @@
                 <Label text="Gérez vos informations, préférences et notifications." styleClass="settings-subtitle"/>
             </VBox>
 
-            <!-- content: put inside HBox so it matches the layout from the dashboard -->
+            <!-- content:: put inside HBox so it matches the layout from the dashboard -->
             <HBox spacing="26" HBox.hgrow="ALWAYS">
                 <!-- left card -->
                 <VBox spacing="18" styleClass="settings-card" HBox.hgrow="ALWAYS">

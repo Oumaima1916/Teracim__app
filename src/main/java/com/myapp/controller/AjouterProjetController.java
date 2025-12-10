@@ -35,6 +35,7 @@ public class AjouterProjetController {
 
     @FXML
     public void initialize() {
+        //etat
         if (etatCombo != null) {
             etatCombo.getItems().addAll("En cours", "Terminé", "En pause");
         }
