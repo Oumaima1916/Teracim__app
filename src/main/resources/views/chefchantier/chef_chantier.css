@@ -18,11 +18,16 @@
     -fx-text-fill: #ffffff;
     -fx-font-size: 18px;
     -fx-font-weight: 600;
+    -fx-cursor: hand;
+    -fx-padding: 6 10;
+    -fx-transition: all 0.18s ease-in-out;
 }
 
 .dash-menu-item:hover {
-    -fx-underline: true;
-    -fx-cursor: hand;
+    -fx-underline: false;
+    -fx-text-fill: derive(#ffffff, -8%);
+    -fx-translate-y: -2;
+    -fx-effect: dropshadow(gaussian, rgba(255,255,255,0.28), 10, 0.6, 0, 0);
 }
 
 /* titre principal dashboard */
@@ -49,20 +54,21 @@
     -fx-translate-y: -2;
 }
 
-/* cartes projets dashboard */
+/* =========================================================
+   CARTES PROJETS DASHBOARD
+   ========================================================= */
 .project-card {
     -fx-background-color: rgba(255,255,255,0.98);
     -fx-background-radius: 18;
     -fx-padding: 24 26 26 26;
-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.16), 10, 0.2, 0, 2);
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.18), 10, 0.3, 0, 3);
+    -fx-transition: all 0.22s ease-in-out;
 }
 
 .project-card:hover {
     -fx-translate-y: -4;
     -fx-cursor: hand;
-    -fx-effect:
-        dropshadow(gaussian, rgba(255,255,255,0.35), 20, 0.4, 0, 0),
-        dropshadow(gaussian, rgba(0,0,0,0.25), 12, 0.2, 0, 3);
+    -fx-effect: dropshadow(gaussian, rgba(255,255,255,0.55), 32, 0.45, 0, 0);
 }
 
 .project-title {
@@ -91,14 +97,17 @@
 .topbar-icon {
     -fx-cursor: hand;
     -fx-opacity: 0.95;
+    -fx-transition: all 0.16s ease-in-out;
 }
 
 .topbar-icon:hover {
     -fx-opacity: 1;
+    -fx-translate-y: -2;
+    -fx-effect: dropshadow(gaussian, rgba(255,255,255,0.22), 8, 0.6, 0, 0);
 }
 
 /* =========================================================
-   SIDEBAR COMMUNE (profil + paramètres)
+   SIDEBAR COMMUNE
    ========================================================= */
 .chef-side-menu {
     -fx-background-color: #ffffff;
@@ -112,11 +121,14 @@
     -fx-text-fill: #0082AC;
     -fx-font-size: 20px;
     -fx-font-weight: 600;
+    -fx-cursor: hand;
+    -fx-transition: all 0.16s ease-in-out;
 }
 
 .chef-side-item:hover {
-    -fx-opacity: 0.8;
-    -fx-cursor: hand;
+    -fx-opacity: 0.95;
+    -fx-translate-x: 4;
+    -fx-effect: dropshadow(gaussian, rgba(0,165,209,0.12), 10, 0.6, 0, 0);
 }
 
 /* =========================================================
@@ -128,13 +140,10 @@
     -fx-padding: 28 32 32 32;
     -fx-spacing: 22;
     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.10), 12, 0, 0, 3);
-
-    /* باش تبان حدّ الشاشة بحال الماكيت */
     -fx-min-width: 950;
     -fx-max-width: 1250;
 }
 
-/* titres */
 .settings-title {
     -fx-text-fill: #0082AC;
     -fx-font-size: 26px;
@@ -147,26 +156,30 @@
 }
 
 /* =========================================================
-   PARAMÈTRES – cartes داخلية
+   PARAMÈTRES – cartes
    ========================================================= */
 .settings-card {
     -fx-background-color: #fff7f1;
     -fx-background-radius: 22;
-    -fx-padding: 24 30 26 30;   /* padding akbar */
-    -fx-spacing: 16;            /* spacing akbar */
+    -fx-padding: 24 30 26 30;
+    -fx-spacing: 16;
+    -fx-transition: all 0.18s ease-in-out;
 }
 
-/* titres */
+.settings-card:hover {
+    -fx-translate-y: -3;
+    -fx-effect: dropshadow(gaussian, rgba(255,255,255,0.22), 16, 0.6, 0, 0);
+}
+
 .settings-card-title {
     -fx-text-fill: #0082AC;
     -fx-font-size: 19px;
     -fx-font-weight: 700;
 }
 
-/* labels */
 .settings-label {
     -fx-text-fill: #555555;
-    -fx-font-size: 16px;        /* kbarna lfont */
+    -fx-font-size: 16px;
 }
 
 .settings-mini-label {
@@ -187,22 +200,18 @@
 .settings-combo {
     -fx-background-color: #ffffff;
     -fx-text-fill: #333333;
-
-    -fx-font-size: 16px;        /* kbarna ktaba f champs */
-
+    -fx-font-size: 16px;
     -fx-background-radius: 999px;
     -fx-border-radius: 999px;
-
     -fx-border-color: #0082AC;
     -fx-border-width: 1;
     -fx-padding: 7 14;
 }
 
-/* focus = border chiwiya barchaa, bla hadak glow l3adi */
 .settings-input:focused,
 .settings-combo:focused {
     -fx-border-color: #00A5D1;
-    -fx-effect: none;           /* hna hiyedna l “eaiba” (dropshadow) */
+    -fx-effect: none;
 }
 
 /* =========================================================
@@ -225,13 +234,14 @@
     -fx-text-fill: #ffffff;
     -fx-font-size: 14px;
     -fx-font-weight: 600;
-    -fx-background-radius: 16;  /* radius n9is shwiya */
+    -fx-background-radius: 16;
     -fx-padding: 8 22;
     -fx-cursor: hand;
 }
 
 .settings-btn-primary:hover {
     -fx-background-color: #006b8c;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.12), 10, 0.4, 0, 2);
 }
 
 .settings-btn-danger {
@@ -249,4 +259,93 @@
 
 .settings-btn-danger:hover {
     -fx-background-color: #ffecec;
+}
+
+/* =========================================================
+   FORMULAIRE AJOUT PROJET – CHEF DE CHANTIER
+   ========================================================= */
+
+/* margin داخلية عامة للفورم */
+.ajoutprojet-root {
+    -fx-padding: 40 60 40 60;
+}
+
+/* الكارتة البيضا ديال الفورم */
+.ajoutprojet-card {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 26;
+    -fx-padding: 32 40 36 40;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.18), 18, 0.3, 0, 6);
+    -fx-spacing: 24;
+}
+
+/* العنوان الرئيسي */
+.ajoutprojet-title {
+    -fx-text-fill: #0082AC;
+    -fx-font-size: 24px;
+    -fx-font-weight: 800;
+}
+
+/* إذا بغيتي واحد السؤال فوق الفورم بحال :
+   "Êtes-vous un nouveau client ?" */
+.ajoutprojet-question {
+    -fx-text-fill: #0082AC;
+    -fx-font-size: 22px;
+    -fx-font-weight: 700;
+}
+
+/* grid فيها جوج كولونات للحقول */
+.ajoutprojet-grid {
+    -fx-hgap: 24;
+    -fx-vgap: 18;
+}
+
+/* زر رجوع أبيض مدوّر */
+.ajoutprojet-btn-retour {
+    -fx-background-color: #ffffff;
+    -fx-text-fill: #0082AC;
+    -fx-font-size: 14px;
+    -fx-font-weight: 600;
+    -fx-background-radius: 999px;
+    -fx-padding: 6 24;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.16), 10, 0.3, 0, 3);
+    -fx-cursor: hand;
+}
+
+.ajoutprojet-btn-retour:hover {
+    -fx-translate-y: -2;
+    -fx-effect: dropshadow(gaussian, rgba(255,255,255,0.5), 26, 0.5, 0, 0);
+}
+
+/* زر Enregistrer أزرق مدوّر */
+.ajoutprojet-btn-main {
+    -fx-background-color: #0082AC;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 16px;
+    -fx-font-weight: 700;
+    -fx-background-radius: 999px;
+    -fx-padding: 8 36;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.20), 12, 0.4, 0, 3);
+}
+
+.ajoutprojet-btn-main:hover {
+    -fx-background-color: #006b8c;
+    -fx-translate-y: -2;
+}
+
+/* textarea ديال description */
+.ajoutprojet-textarea {
+    -fx-background-color: #ffffff;
+    -fx-text-fill: #333333;
+    -fx-font-size: 15px;
+    -fx-background-radius: 18;
+    -fx-border-radius: 18;
+    -fx-border-color: #0082AC;
+    -fx-border-width: 1.2;
+    -fx-padding: 8 12;
+}
+
+.ajoutprojet-textarea:focused {
+    -fx-border-color: #00A5D1;
 }
