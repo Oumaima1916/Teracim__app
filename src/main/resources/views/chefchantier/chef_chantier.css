@@ -578,7 +578,7 @@
     -fx-background: transparent;
 }
 
-/* list container */
+/* list-container */
 #listContainer { -fx-padding: 6; -fx-spacing: 8; }
 
 /* notification row */

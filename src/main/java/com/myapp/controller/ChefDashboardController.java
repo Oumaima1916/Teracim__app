@@ -85,7 +85,6 @@ public class ChefDashboardController {
             }
         }
 
-        // fallback path: try to find the overlay in the scene (in case setMainController wasn't called)
         try {
             if (rootPane != null && rootPane.getScene() != null) {
                 javafx.scene.Parent sceneRoot = rootPane.getScene().getRoot();
