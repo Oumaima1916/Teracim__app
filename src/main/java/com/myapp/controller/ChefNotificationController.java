@@ -14,9 +14,6 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.UUID;
 
-/**
- * Controller for chef_notification.fxml
- */
 public class ChefNotificationController {
 
     @FXML private VBox listContainer;
@@ -30,16 +27,29 @@ public class ChefNotificationController {
         if (btnClearAll != null) {
             btnClearAll.setOnAction(e -> clearAll());
         }
+
+        // EXAMPLES
+        Platform.runLater(() -> {
+            addNotification("La réunion avec le client est prévue demain à 09:30.");
+            addNotification("Vous avez une nouvelle tâche sur le chantier Marina Bay.");
+            addNotification("Le rapport journalier #42 a été ajouté.");
+            addNotification("Une nouvelle facture est disponible pour le chantier Résidence Atlas.");
+            addNotification("Client Y : Pouvez-vous confirmer le RDV du 10/12 ?");
+        });
     }
 
-    public String addNotification(String title, String message) {
+    /* ===== API ===== */
+
+    public String addNotification(String message) {
         String id = UUID.randomUUID().toString();
+
         Platform.runLater(() -> {
-            VBox row = buildRow(id, title, message);
+            VBox row = buildRow(id, message);
             uiMap.put(id, row);
-            listContainer.getChildren().add(0, row); // newest on top
+            listContainer.getChildren().add(0, row);
             scroll.setVvalue(0);
         });
+
         return id;
     }
 
@@ -57,32 +67,54 @@ public class ChefNotificationController {
         });
     }
 
-    private VBox buildRow(String id, String title, String message) {
-        VBox outer = new VBox();
-        outer.getStyleClass().add("notif-row");
-        outer.setSpacing(6);
+    /* ==== UI ==== */
 
-        Label lblTitle = new Label(title == null ? "" : title);
-        lblTitle.getStyleClass().add("notif-title");
+    private VBox buildRow(String id, String message) {
 
-        Label lblMsg = new Label(message == null ? "" : message);
+        // ===== Message =====
+        Label lblMsg = new Label(message);
         lblMsg.setWrapText(true);
-        lblMsg.setMaxWidth(240);
+        lblMsg.setMaxWidth(220); // خلي مساحة للزر
+        lblMsg.setStyle(
+                "-fx-font-size: 16px;" +
+                        "-fx-text-fill: white;"
+        );
 
-        HBox top = new HBox();
-        top.setSpacing(8);
-        top.getChildren().add(lblTitle);
+        // ===== Close X =====
+        Button close = new Button("✕");
+        close.setMinWidth(28);
+        close.setPrefWidth(28);
+        close.setMaxWidth(28);
+        close.setMinHeight(28);
+        close.setPrefHeight(28);
 
-        Region spacer = new Region();
-        HBox.setHgrow(spacer, Priority.ALWAYS);
-        top.getChildren().add(spacer);
+        close.setStyle(
+                "-fx-font-size: 16px;" +
+                        "-fx-font-weight: bold;" +
+                        "-fx-text-fill: white;" +
+                        "-fx-background-color: transparent;" +
+                        "-fx-padding: 0;" +
+                        "-fx-cursor: hand;"
+        );
 
-        Button btnClose = new Button("✕");
-        btnClose.getStyleClass().add("notif-close");
-        btnClose.setOnAction(ev -> removeNotification(id));
-        top.getChildren().add(btnClose);
+        close.setOnAction(e -> removeNotification(id));
 
-        outer.getChildren().addAll(top, lblMsg);
-        return outer;
+        // ===== Layout =====
+        HBox line = new HBox(10);
+        line.setAlignment(javafx.geometry.Pos.CENTER_LEFT);
+
+        HBox.setHgrow(lblMsg, Priority.ALWAYS);
+        line.getChildren().addAll(lblMsg, close);
+
+        VBox box = new VBox(line);
+        box.setStyle(
+                "-fx-padding: 14;" +
+                        "-fx-background-color: rgba(255,255,255,0.08);" +
+                        "-fx-background-radius: 10;"
+        );
+
+        return box;
     }
+
+
 }

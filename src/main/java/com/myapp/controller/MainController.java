@@ -122,7 +122,7 @@ public class MainController {
         return notificationController;
     }
 
-    /* ========== Navigation ========== */
+    /* ========== Navigation ========= */
 
     public void showHome() {
         if (rootStack == null || homeContent == null) return;
