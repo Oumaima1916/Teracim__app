@@ -9,6 +9,7 @@
 
 <BorderPane xmlns="http://javafx.com/javafx/25"
             xmlns:fx="http://javafx.com/fxml/1"
+            fx:id="rootPane"
             fx:controller="com.myapp.controller.ChefDashboardController">
 
     <!-- Feuille de style spécifique au dashboard chef -->
@@ -16,7 +17,7 @@
         <URL value="@chef_chantier.css"/>
     </stylesheets>
 
-    <!-- NAVBAR / TOPBAR -->
+    <!-- NAVBAR \ TOPBAR -->
     <top>
         <HBox spacing="40" alignment="CENTER_LEFT" styleClass="dash-topbar">
             <padding>
@@ -24,25 +25,24 @@
             </padding>
 
             <!-- menu -->
-            <Label text="Accueil"    styleClass="dash-menu-item"/>
-            <Label text="Messages"   styleClass="dash-menu-item"/>
+            <Label text="Accueil"    styleClass="dash-menu-item" onMouseClicked="#goToHome"/>
+            <Label text="Messages"   styleClass="dash-menu-item" onMouseClicked="#openMessages"/>
             <Label text="Paramètres" styleClass="dash-menu-item" onMouseClicked="#openParametres"/>
 
             <Pane HBox.hgrow="ALWAYS"/>
 
             <!-- notif icon -->
-            <ImageView fitWidth="30" fitHeight="30">
+            <ImageView fx:id="notifIcon" onMouseClicked="#onNotifIconClicked" fitWidth="30" fitHeight="30">
                 <image>
-                    <!-- تعديل المسار حسب فين حاط الصور -->
                     <Image url="@../images/notification.png"/>
                 </image>
             </ImageView>
         </HBox>
     </top>
 
-    <!-- CONTENU PRINCIPAL -->
+    <!-- CONTENU principal -->
     <center>
-        <VBox fx:id="sidebar" spacing="25">
+        <VBox fx:id="rootContainer" spacing="25">
             <padding>
                 <Insets top="20" left="40" right="40" bottom="30"/>
             </padding>
@@ -52,14 +52,14 @@
                 <Label text="Les projets en cours" styleClass="dash-main-title"/>
                 <Pane HBox.hgrow="ALWAYS"/>
 
-                <!-- هــنــا زدت onAction -->
-                <Button text="Ajouter un projet"
+                <Button fx:id="addBtn"
+                        text="Ajouter un projet"
                         styleClass="dash-add-btn"
                         onAction="#openAddProject"/>
             </HBox>
 
             <!-- GRID DES PROJETS -->
-            <GridPane hgap="25" vgap="25">
+            <GridPane fx:id="projectsGrid" hgap="25" vgap="25">
                 <columnConstraints>
                     <ColumnConstraints percentWidth="50"/>
                     <ColumnConstraints percentWidth="50"/>
@@ -155,7 +155,7 @@
                            styleClass="project-desc"/>
                 </VBox>
 
-                <!-- PROJECT CARD 4 -->
+                <!-- CARD 4 -->
                 <VBox spacing="8" styleClass="project-card"
                       GridPane.columnIndex="1" GridPane.rowIndex="1">
 
