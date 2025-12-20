@@ -3,30 +3,30 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
                              https://maven.apache.org/xsd/maven-4.0.0.xsd">
-
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.myapp</groupId>
-    <artifactId>Teracim_app</artifactId>
+    <artifactId>Terracim_app</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-        <!-- compile for JDK 23 -->
-        <maven.compiler.source>23</maven.compiler.source>
-        <maven.compiler.target>23</maven.compiler.target>
-        <maven.compiler.release>23</maven.compiler.release>
+        <!-- compile for JDK 17 (change to 23 if you use JDK 23) -->
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <maven.compiler.release>17</maven.compiler.release>
 
         <!-- JavaFX version -->
         <javafx.version>25.0.1</javafx.version>
 
-        <!-- default classifier (will be overridden by os-maven-plugin at build time) -->
+        <!-- default classifier (overridden by os-maven-plugin at build time) -->
         <os.detected.classifier>win</os.detected.classifier>
     </properties>
 
     <dependencies>
-        <!-- JavaFX modules (classifier injected) -->
+        <!-- JavaFX Controls -->
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>
@@ -34,17 +34,32 @@
             <classifier>${os.detected.classifier}</classifier>
         </dependency>
 
+        <!-- JavaFX FXML -->
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-fxml</artifactId>
             <version>${javafx.version}</version>
             <classifier>${os.detected.classifier}</classifier>
         </dependency>
+
+        <!-- MySQL Connector (official coordinate) -->
+        <dependency>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
+            <version>8.0.33</version>
+        </dependency>
+
+        <!-- BCrypt for password hashing -->
+        <dependency>
+            <groupId>org.mindrot</groupId>
+            <artifactId>jbcrypt</artifactId>
+            <version>0.4</version>
+        </dependency>
     </dependencies>
 
     <build>
         <plugins>
-            <!-- detect OS classifier (win/linux/mac) -->
+            <!-- Detect OS classifier -->
             <plugin>
                 <groupId>kr.motd.maven</groupId>
                 <artifactId>os-maven-plugin</artifactId>
@@ -58,7 +73,7 @@
                 </executions>
             </plugin>
 
-            <!-- ensure compiler uses release 23 -->
+            <!-- Compiler plugin -->
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.11.0</version>
@@ -67,7 +82,7 @@
                 </configuration>
             </plugin>
 
-            <!-- plugin to run JavaFX with mvn javafx:run -->
+            <!-- JavaFX Maven plugin -->
             <plugin>
                 <groupId>org.openjfx</groupId>
                 <artifactId>javafx-maven-plugin</artifactId>

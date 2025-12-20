@@ -28,7 +28,7 @@ public class TerracimApp extends Application {
                 "-fx-background-image: url('" + bgUrl + "');" +
                         "-fx-background-repeat: no-repeat;" +
                         "-fx-background-position: right center;" +
-                        "-fx-background-size: cover;" +      // ila bghiti height only: "auto 100%"
+                        "-fx-background-size: cover;" +
                         "-fx-padding: 40;"
         );
 
@@ -40,7 +40,6 @@ public class TerracimApp extends Application {
         stage.setScene(scene);
         stage.show();
     }
-
 
     public static void main(String[] args) {
         launch(args);

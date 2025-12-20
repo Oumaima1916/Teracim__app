@@ -33,6 +33,7 @@ public class AjouterProjetController {
 
     @FXML
     private void onEnregistrerClicked() {
+
         String titre = nomProjetField != null ? nomProjetField.getText() : null;
         String client = clientField != null ? clientField.getText() : null;
         String ville = villeField != null ? villeField.getText() : null;
@@ -48,15 +49,8 @@ public class AjouterProjetController {
         if (parentController != null) {
             parentController.addProjectCard(titre, client, location, desc);
 
-            // also add a notification via mainController (optional)
-            if (parentController instanceof ChefDashboardController cd && cd != null) {
-                // parentController has reference to MainController via setMainController earlier,
-                // but we don't access it here directly. The chef dashboard can add notifications if needed.
-            }
-
         } else {
-            System.err.println("AjouterProjetController: parentController is null — cannot add project");
-            System.out.println("Projet = " + titre);
+            System.err.println("AjouterProjetController: parentController is NULL!");
         }
 
         // clear
