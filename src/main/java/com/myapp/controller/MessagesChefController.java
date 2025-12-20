@@ -7,18 +7,11 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Controller for the chef messages view.
- * - Keeps a simple in-memory map of messages per contact (String -> List<String>).
- * - Shows a centered placeholder when there is no message for the selected contact.
- * - When sending a message, it is appended to the current contact conversation.
- */
 public class MessagesChefController {
 
     // left list items
