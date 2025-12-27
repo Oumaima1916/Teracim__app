@@ -30,6 +30,7 @@ public class AboutController {
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();
+
         }
     }
 }

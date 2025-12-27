@@ -29,5 +29,6 @@ public class SecretaireParametresController implements Initializable {
         Parent root = FXMLLoader.load(getClass().getResource(path));
         Stage stage = (Stage) label.getScene().getWindow();
         stage.setScene(new Scene(root));
+
     }
 }

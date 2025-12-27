@@ -65,7 +65,7 @@ public class MessagesSecretaireController implements Initializable {
         label.setWrapText(true);
         label.setMaxWidth(400);
 
-        // WhatsApp Styling
+
         if (isMe) {
             label.setStyle("-fx-background-color: #0082AC; -fx-text-fill: white; -fx-padding: 10 15; -fx-background-radius: 15 15 0 15;");
         } else {

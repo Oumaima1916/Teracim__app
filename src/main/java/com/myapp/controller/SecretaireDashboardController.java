@@ -162,5 +162,6 @@ public class SecretaireDashboardController implements Initializable {
         public String getObjet() { return objet; }
         public String getMontant() { return montant; }
         public String getStatus() { return status; }
+
     }
 }

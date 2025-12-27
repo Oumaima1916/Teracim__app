@@ -20,4 +20,5 @@ public class Compte {
     public String getStatut() { return statut; }
     public LocalDate getDateJoined() { return dateJoined; }
     public String getLastActive() { return lastActive; }
+
 }

@@ -544,6 +544,7 @@ public class GestionController implements Initializable {
             this.role = role;
             this.email = email;
             this.status = status;
+
         }
 
         public String getFullName() { return fullName; }
