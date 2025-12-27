@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<StackPane fx:id="rootPane" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="com.myapp.controller.AboutController">
+
+    <ImageView fitHeight="${rootPane.height}" fitWidth="${rootPane.width}" pickOnBounds="true" preserveRatio="false">
+        <image>
+            <Image url="@../images/bg.png" />
+        </image>
+    </ImageView>
+
+    <VBox alignment="TOP_LEFT">
+
+        <HBox alignment="CENTER_LEFT" spacing="50.0">
+            <padding>
+                <Insets left="60.0" right="60.0" top="40.0" />
+            </padding>
+            <Button onMouseClicked="#goHome" style="-fx-background-color: transparent; -fx-text-fill: rgba(255,255,255,0.7); -fx-font-weight: bold; -fx-font-size: 20px; -fx-cursor: hand;" text="Accueil" />
+            <Button style="-fx-background-color: transparent; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 20px; -fx-cursor: default;" text="À propos" />
+            <Button onMouseClicked="#handleContactClick" style="-fx-background-color: transparent; -fx-text-fill: rgba(255,255,255,0.7); -fx-font-weight: bold; -fx-font-size: 20px; -fx-cursor: hand;" text="Contact" />
+        </HBox>
+
+        <VBox alignment="TOP_LEFT">
+            <padding>
+                <Insets left="60.0" top="60.0" />
+            </padding>
+
+            <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity"
+                  prefHeight="620.0" prefWidth="1050.0" spacing="25.0"
+                  style="-fx-background-color: rgba(255,255,255,0.8); -fx-background-radius: 30; -fx-border-color: rgba(255,255,255,0.5); -fx-border-radius: 30; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.15), 30, 0, 0, 0);">
+
+                <padding>
+                    <Insets top="40.0" bottom="40.0" left="60.0" right="60.0"/>
+                </padding>
+
+                <Label text="À propos de TERRACIM" textFill="#005f87">
+                    <font>
+                        <Font name="System Bold" size="46.0" />
+                    </font>
+                </Label>
+
+                <Label text="TERRACIM est une entreprise spécialisée dans le domaine du bâtiment et des travaux publics. Nous accompagnons nos clients avec expertise, innovation et transparence."
+                       textAlignment="CENTER" wrapText="true" textFill="#2e2e2e" maxWidth="850">
+                    <font>
+                        <Font size="22.0" />
+                    </font>
+                </Label>
+
+                <Separator prefWidth="400.0" style="-fx-opacity: 0.3; -fx-background-color: #555;" />
+
+                <HBox alignment="CENTER" spacing="100.0" VBox.vgrow="ALWAYS">
+                    <VBox alignment="TOP_CENTER" spacing="20.0" prefWidth="450.0">
+                        <Label text="Notre mission" textFill="#005f87">
+                            <font><Font name="System Bold" size="28.0" /></font>
+                        </Label>
+                        <ImageView fitHeight="75.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
+                            <image><Image url="@../images/lightbulb.png" /></image>
+                        </ImageView>
+                        <Label text="Offrir des solutions durables et modernes, en respectant les normes de qualité." textAlignment="CENTER" wrapText="true" textFill="#333">
+                            <font><Font size="19.0" /></font>
+                        </Label>
+                    </VBox>
+
+                    <Separator orientation="VERTICAL" style="-fx-opacity: 0.3;" />
+
+                    <VBox alignment="TOP_LEFT" spacing="20.0" prefWidth="450.0">
+                        <padding><Insets left="30.0"/></padding>
+                        <Label text="Nos valeurs" textFill="#005f87">
+                            <font><Font name="System Bold" size="28.0" /></font>
+                        </Label>
+                        <HBox alignment="CENTER_LEFT" spacing="20.0">
+                            <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                <image><Image url="@../images/shakinghands.png" /></image>
+                            </ImageView>
+                            <Label text="Expertise locale" textFill="#222"><font><Font size="20.0"/></font></Label>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" spacing="20.0">
+                            <Label text="✔" textFill="#007ca6" style="-fx-font-size: 26px; -fx-font-weight: bold;"/>
+                            <Label text="Innovation continue" textFill="#222"><font><Font size="20.0"/></font></Label>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" spacing="20.0">
+                            <Label text="✔" textFill="#007ca6" style="-fx-font-size: 26px; -fx-font-weight: bold;"/>
+                            <Label text="Engagement et transparence" textFill="#222"><font><Font size="20.0"/></font></Label>
+                        </HBox>
+                    </VBox>
+                </HBox>
+            </VBox>
+        </VBox>
+    </VBox>
+</StackPane>
