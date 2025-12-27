@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class MessagesController implements Initializable {
+public class MessagesSecretaireController implements Initializable {
 
     @FXML private Label navAccueil, navParametres, navGestion, chatUserName;
     @FXML private VBox chatContainer;

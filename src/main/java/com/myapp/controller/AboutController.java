@@ -1,6 +1,5 @@
 package com.myapp.controller;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -19,7 +18,7 @@ public class AboutController {
 
     @FXML
     void handleContactClick(MouseEvent event) {
-        switchPage(event, "/views/secretaire/contact.fxml");
+        switchPage(event, "/views/contact.fxml");
     }
 
     private void switchPage(MouseEvent event, String fxmlPath) {

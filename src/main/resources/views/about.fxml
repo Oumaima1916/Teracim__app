@@ -17,7 +17,7 @@
 
     <ImageView fitHeight="${rootPane.height}" fitWidth="${rootPane.width}" pickOnBounds="true" preserveRatio="false">
         <image>
-            <Image url="@../images/bg.png" />
+            <Image url="@images/bg.png" />
         </image>
     </ImageView>
 
@@ -66,7 +66,7 @@
                             <font><Font name="System Bold" size="28.0" /></font>
                         </Label>
                         <ImageView fitHeight="75.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
-                            <image><Image url="@../images/lightbulb.png" /></image>
+                            <image><Image url="@images/lightbulb.png" /></image>
                         </ImageView>
                         <Label text="Offrir des solutions durables et modernes, en respectant les normes de qualité." textAlignment="CENTER" wrapText="true" textFill="#333">
                             <font><Font size="19.0" /></font>
@@ -82,7 +82,7 @@
                         </Label>
                         <HBox alignment="CENTER_LEFT" spacing="20.0">
                             <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-                                <image><Image url="@../images/shakinghands.png" /></image>
+                                <image><Image url="@images/shakinghands.png" /></image>
                             </ImageView>
                             <Label text="Expertise locale" textFill="#222"><font><Font size="20.0"/></font></Label>
                         </HBox>

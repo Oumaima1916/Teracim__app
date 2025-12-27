@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<StackPane fx:id="rootPane" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.myapp.controller.ContactController">
+    <ImageView fitHeight="${rootPane.height}" fitWidth="${rootPane.width}" pickOnBounds="true" preserveRatio="false">
+        <image>
+            <Image url="@images/bg.png" />
+        </image>
+    </ImageView>
+
+    <VBox alignment="TOP_LEFT">
+        <HBox alignment="CENTER_LEFT" spacing="50.0">
+            <padding>
+                <Insets left="60.0" top="40.0" />
+            </padding>
+            <Button onAction="#goHome" style="-fx-background-color: transparent; -fx-text-fill: rgba(255,255,255,0.7); -fx-font-weight: bold; -fx-font-size: 20px; -fx-cursor: hand;" text="Accueil" />
+            <Button onMouseClicked="#goAbout" style="-fx-background-color: transparent; -fx-text-fill: rgba(255,255,255,0.7); -fx-font-weight: bold; -fx-font-size: 20px; -fx-cursor: hand;" text="À propos" />
+            <Button style="-fx-background-color: transparent; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 20px;" text="Contact" />
+        </HBox>
+
+        <Region VBox.vgrow="ALWAYS" />
+
+        <HBox alignment="CENTER_LEFT">
+            <padding>
+                <Insets left="60.0" bottom="50.0" />
+            </padding>
+            <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="650.0" prefWidth="1050.0" spacing="10.0"
+                  style="-fx-background-color: rgba(255,255,255,0.75); -fx-background-radius: 30; -fx-border-color: rgba(255,255,255,0.4); -fx-border-radius: 30; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.15), 20, 0, 0, 0);">
+                <padding>
+                    <Insets bottom="25.0" left="50.0" right="50.0" top="30.0" />
+                </padding>
+
+                <VBox alignment="CENTER" spacing="5.0">
+                    <Label text="CONTACTEZ TERRACIM" textFill="#005f87">
+                        <font><Font name="System Bold" size="38.0" /></font>
+                    </Label>
+                    <Label minWidth="950.0" prefWidth="950.0" text="Pour toute question ou information, remplissez le formulaire ci-dessous et nous vous répondrons dès que possible."
+                           textAlignment="CENTER" textFill="#333" wrapText="true">
+                        <font><Font size="18.0" /></font>
+                    </Label>
+                </VBox>
+
+                <HBox spacing="40.0" VBox.vgrow="ALWAYS">
+                    <padding><Insets top="15.0" /></padding>
+
+                    <VBox spacing="8.0" HBox.hgrow="ALWAYS">
+                        <Label text="Nom" textFill="#005f87" style="-fx-font-weight: bold; -fx-font-size: 16px;" />
+                        <TextField prefHeight="45.0" promptText="Entrez votre nom"
+                                   style="-fx-background-radius: 10; -fx-background-color: rgba(255,255,255,0.6); -fx-border-color: #ccc; -fx-border-radius: 10; -fx-prompt-text-fill: #555; -fx-text-fill: black; -fx-font-size: 17px;" />
+
+                        <Label text="Adresse e-mail" textFill="#005f87" style="-fx-font-weight: bold; -fx-font-size: 16px;" />
+                        <TextField prefHeight="45.0" promptText="Entrez votre adresse e-mail"
+                                   style="-fx-background-radius: 10; -fx-background-color: rgba(255,255,255,0.6); -fx-border-color: #ccc; -fx-border-radius: 10; -fx-prompt-text-fill: #555; -fx-text-fill: black; -fx-font-size: 17px;" />
+
+                        <Label text="Message" textFill="#005f87" style="-fx-font-weight: bold; -fx-font-size: 16px;" />
+                        <TextArea prefHeight="120.0" promptText="Entrez votre message" wrapText="true"
+                                  style="-fx-background-radius: 10; -fx-background-color: rgba(255,255,255,0.6); -fx-border-color: #ccc; -fx-border-radius: 10; -fx-prompt-text-fill: #555; -fx-text-fill: black; -fx-font-size: 17px;" />
+
+                        <VBox alignment="CENTER">
+                            <padding><Insets top="15.0"/></padding>
+                            <Button onAction="#handleEnvoyer" prefHeight="50.0" prefWidth="220.0" style="-fx-background-color: #007CA6; -fx-background-radius: 15; -fx-cursor: hand;" text="Envoyer" textFill="WHITE">
+                                <font><Font name="System Bold" size="20.0" /></font>
+                            </Button>
+                        </VBox>
+                    </VBox>
+
+                    <VBox prefWidth="380.0" spacing="30.0" style="-fx-background-color: rgba(0, 95, 135, 0.08); -fx-background-radius: 20;">
+                        <padding><Insets bottom="40.0" left="35.0" right="20.0" top="40.0" /></padding>
+
+                        <Label text="Contact" textFill="#005f87">
+                            <font><Font name="System Bold" size="28.0" /></font>
+                        </Label>
+
+                        <HBox alignment="CENTER_LEFT" spacing="15.0">
+                            <Label text="✉" style="-fx-font-size: 26px; -fx-text-fill: #007CA6;" />
+                            <Label text="contact@terracim.com" textFill="BLACK" style="-fx-font-weight: bold; -fx-font-size: 17px;" />
+                        </HBox>
+
+                        <HBox alignment="CENTER_LEFT" spacing="15.0">
+                            <Label text="📞" style="-fx-font-size: 24px; -fx-text-fill: #007CA6;" />
+                            <Label text="+212 5 55 67 89 00" textFill="BLACK" style="-fx-font-weight: bold; -fx-font-size: 17px;" />
+                        </HBox>
+
+                        <HBox alignment="CENTER_LEFT" spacing="15.0">
+                            <Label text="📍" style="-fx-font-size: 26px; -fx-text-fill: #007CA6;" />
+                            <Label text="Agadir, Maroc" textFill="BLACK" style="-fx-font-weight: bold; -fx-font-size: 17px;" />
+                        </HBox>
+
+                        <HBox alignment="CENTER_LEFT" spacing="15.0">
+                            <Label text="🌐" style="-fx-font-size: 26px; -fx-text-fill: #007CA6;" />
+                            <Label text="www.terracim.com" textFill="BLACK" style="-fx-font-weight: bold; -fx-font-size: 17px;" />
+                        </HBox>
+                    </VBox>
+                </HBox>
+            </VBox>
+        </HBox>
+    </VBox>
+</StackPane>

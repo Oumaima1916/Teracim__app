@@ -19,7 +19,7 @@ public class ContactController {
 
     @FXML
     public void goAbout(MouseEvent event) {
-        goToPage(event, "/views/secretaire/about.fxml");
+        goToPage(event, "/views/about.fxml");
     }
 
     @FXML

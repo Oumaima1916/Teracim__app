@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class ParametresController implements Initializable {
+public class SecretaireParametresController implements Initializable {
 
     @FXML private Label navAccueil, navMessages, navGestion;
     @FXML private ComboBox<String> languageComboBox;
@@ -19,7 +19,6 @@ public class ParametresController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        // Initialisation dyal l-page kima l-Dashboard
     }
 
     @FXML private void switchToAccueil() throws IOException { loadPage("/views/secretaire/dashboard_secretaire.fxml", navAccueil); }

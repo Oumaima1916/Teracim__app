@@ -12,7 +12,7 @@ public class Compte {
         this.dateJoined = dateJoined; this.lastActive = lastActive;
     }
 
-    // Getters (Darori bach i-bānu f l-jadwal)
+
     public String getNom() { return nom; }
     public String getRole() { return role; }
     public String getEmail() { return email; }
